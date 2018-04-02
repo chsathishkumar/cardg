@@ -1,0 +1,396 @@
+<div style="" ng-cloak>
+	<section layout="row" style="background-color: #b13138; height: 60px;">
+		<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+			md-component-id="left" md-disable-backdrop md-whiteframe="4"
+			is-locked-open="$media('md')"
+			style="width:300px; background-color: #232f3e; overflow: hidden; position: fixed">
+		<md-content layout-margin
+			style="margin:0px; background-color: #232f3e;overflow: hidden;">
+
+		<ul id="slide-out"
+			class="side-nav fixed sn-bg-1 custom-scrollbar ps-container ps-theme-default"
+			data-ps-id="415b0f58-76ca-2c75-079f-fa958eeca164"
+			style="transform: translateX(0px); background-color: #232f3e; margin-top: 60px; margin-left: 0px; padding-left: 10px;">
+			<li>
+				<h1 class="md-toolbar-tools"
+					style="height: 35px; font-family: sans-seriff; font-style: normal; font-size: 38px; text-align: center; margin-left: 30px; color: burlywood">
+					CardG</h1>
+			</li>
+			<li
+				style="padding-left: 20px; border-bottom: 1px solid rgba(153, 153, 153, .298039)">
+				<br />
+				<ul class="nav">
+					<li ng-if="loginCheck == 0"><a href="#signup" role="button"
+						data-toggle="modal" data-target="#signup" style="color: white;"><span
+							class="glyphicon glyphicon-user"></span> Register</a></li>
+					<li ng-if="loginCheck == 0"><a href="#login"
+						data-toggle="modal" role="button" data-target="#login"
+						style="color: white;"><span class="glyphicon glyphicon-log-in"></span>
+							Login</a></li>
+
+					
+				</ul>
+			</li>
+		</ul>
+		</md-content> </md-sidenav>
+		<md-content flex layout-padding style="padding:0px; overflow: hidden;">
+		<div layout="column" layout-align="top left"
+			style="background-color: #2b3e50; padding: 2px;" class="col-md-12">
+
+			<ul
+				style="margin-left: 0px; padding: 0px; background-color: #2b3e50; height: 60px;"
+				class="navbar navbar-fixed-top">
+				<div class="col-md-2" style="padding-top: 2px; padding-left: 0px;">
+					<li><md-button ng-click="toggleLeft()" class="md-raised"
+							style="min-width: 40px; background-color: white; color: #2b3e50; padding-top:5px;margin-bottom: 30px;">
+						<i class="fa fa-bars" style="font-size: 22px;"></i></md-button> &nbsp; <a
+						href="" style="padding-top: 15px; color: white;"
+						ng-if="loginCheck == 0"><i class="fa fa-home"
+							style="font-size: 30px; margin-top: 15px;" ng-click="home()"></i></a></li>
+				</div>
+				<div class="col-md-4" style="padding-left: 0px; padding-top: 10px;">
+					<li>
+						<div class="flipkart-navbar-search smallsearch col-md-12">
+							<div class="form-group waves-light waves-effect waves-light"
+								style="width: 60%">
+								<input class="flipkart-navbar-input col-md-10" type=""
+									placeholder="Search for Products, Brands and more" name="">
+								<button class="flipkart-navbar-button col-md-2"
+									style="border: none">
+									<svg width="16px" height="16px">   
+									<path
+											d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>                         
+                        </svg>
+								</button>
+							</div>
+						</div>
+					</li>
+				</div>
+				<div class="col-md-3" style="padding-top: 15px;"
+					ng-if="loginCheck != 1">
+					<ul class="">
+						<li>
+							<div class="col-md-6">
+								<a class="btn btn-sm btn-warning" data-toggle="modal"
+									href="#getCallback" data-target="#getCallback"
+									style="border-radius: 5px;"> <i class="fa fa-phone"></i>
+									Get Callback
+								</a>
+							</div>
+							<div class="col-md-6">
+								<a class="btn btn-sm btn-warning" data-toggle="modal"
+									href="#sendSMS" data-target="#sendSMS"
+									style="border-radius: 5px;"> <i class="fa fa-mobile"></i>
+									Send SMS
+								</a>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+				<!-- <div class="col-md-3 pull-center">
+					<ul ng-if="loginCheck != 1">
+						<li>
+							<div style="width: 350px;">
+								<div class="col-md-4">
+									<small><a href="" style="color: white"
+										data-id="Supplier" class="open-externalsignup"
+										data-target="#externalsignup" data-toggle="modal">I am a
+											Supplier</a></small>
+								</div>
+								<div class="col-md-5">
+									<small><a href="" style="color: white"
+										data-id="Customer" class="open-externalsignup"
+										data-target="#externalsignup" data-toggle="modal">I am a
+											Customer</a></small>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div> -->
+				<div class="col-md-5 pull-right"
+					style="padding-top: 15px; padding-left: 50px;"
+					ng-if="loginCheck == 1">
+					<ul class="">
+						<li>
+							<div class="col-md-3">
+								<a href="" style="color: white;"
+									ng-click="profile(); toggleLeft()"><i
+									class="fa fa-briefcase fa"></i> Profile</a>
+							</div>
+							<div class="col-md-3">
+								<a href="" ng-click="logout();toggleLeft()"
+									style="color: white;"><i class="fa fa-sign-out fa"></i>
+									Logout</a>
+							</div>
+							<div class="col-md-6">
+								<a style="color: white;" href="">Welcome {{userName}}</a> <i
+									class="fa fa-user fa"></i>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</ul>
+		</div>
+		</md-content>
+	</section>
+</div>
+<!---------------------------------------------  LOGIN MODAL ----------------------------------------->
+<div class="modal fade" id="login" role="dialog"
+	aria-labelledby="mySmallModalLabel1" style="padding: 20px;">
+	<div class="modal-dialog modal-content modal-sm login-dp"
+		style="padding: 10px;">
+		<div
+			style="text-align: center; background-color: #164b73; color: white; padding: 5px; border-radius: 3px;">
+			<strong>Please sign in</strong>
+		</div>
+		<div class="social-buttons">
+			<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>Facebook</a>
+			<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i>Twitter</a>
+		</div>
+		<form class="form" role="form" method="post" id="login-nav">
+			<div class="form-group">
+				<label class="sr-only">Email Address</label> <input type="email"
+					class="form-control" placeholder="Email Address"
+					ng-model="parent.email" required="required">
+			</div>
+			<div class="form-group">
+				<label class="sr-only">Password</label> <input type="password"
+					ng-model="parent.password" class="form-control"
+					placeholder="Password" required="required">
+			</div>
+			<div class="form-group">
+				<button ng-click="login()" class="btn btn-primary btn-block"
+					role="button">Sign in</button>
+			</div>
+			<div class="modal-body" ng-if="errorMessage"
+				style="color: red; font-size: 15px; padding: 5px;">{{errorMessage}}</div>
+			<div class="checkbox">
+				<label> <input type="checkbox"> Keep me logged in
+				</label>
+			</div>
+		</form>
+		<div class="bottom text-center"
+			style="padding: 2px; border-radius: 5px;">
+			New here? <a href="#signup" data-toggle="modal" data-target="#signup"><b>Join
+					us</b></a>
+		</div>
+	</div>
+</div>
+
+<!---------------------------------------------  SIGNUP MODAL ----------------------------------------->
+<div class="modal fade" id="signup" role="dialog"
+	aria-labelledby="mySmallModalLabel" style="padding: 20px;">
+	<div class="modal-dialog modal-content modal-sm login-dp signup-body"
+		style="padding: 10px; max-height: calc(100vh - 50px); overflow-y: auto; border-radius: 10px;">
+		<div class="form-group">
+			<div class="col-sm-12">
+				<div
+					style="text-align: center; background-color: #1f4e74; color: white; padding: 5px; border-radius: 3px;">
+					<strong>Please sign up</strong>
+				</div>
+			</div>
+		</div>
+		<br />
+		<form class="form" role="form" method="post" id="login-nav"
+			style="color: grey;">
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label class="control-label">Email Address</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
+							type="email" class="form-control" required="required"
+							ng-model="parent.signupEmail">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="control-label">Fullname</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user fa"
+							aria-hidden="true"></i></span> <input type="text" class="form-control"
+							required="required" ng-model="parent.signupFullname">
+					</div>
+				</div>
+			</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label class="control-label">Password</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock fa-lg"
+							aria-hidden="true"></i></span> <input type="password"
+							class="form-control" required="required"
+							ng-model="parent.signupPassword">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="control-label">Confirm Password</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock fa-lg"
+							aria-hidden="true"></i></span> <input type="password"
+							class="form-control" required="required">
+					</div>
+				</div>
+			</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label class="control-label">Location</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="fa fa-location-arrow" aria-hidden="true"></i></span> <input
+							type="text" class="form-control" ng-model="parent.userLocation">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="control-label">User Type</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-tags"
+							aria-hidden="true"></i></span> <select class="form-control"
+							ng-model="parent.userType">
+							<option>Manager</option>
+							<option>User</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-10">
+					<label> <input type="checkbox" ng-model="vendorAcceptance">
+						<a target="_blank" href="views/termsAndConditions.html">I
+							agree to the Terms and Conditions</a>
+					</label>
+				</div>
+			</div>
+			<div class="modal-body" ng-if="errorMessage"
+				style="color: red; font-size: 15px; padding: 5px;">{{errorMessage}}</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-12">
+					<button type="submit" ng-click="signup()"
+						class="btn btn-primary btn-block" href="#signupConfirmation"
+						role="button" data-toggle="modal" data-dismiss="modal"
+						data-target="#signupConfirmation">Sign up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!--  ************************ EXTERNAL SIGN UP *******************8 -->
+<div class="modal fade" id="externalsignup" role="dialog"
+	aria-labelledby="mySmallModalLabel" style="padding: 20px;">
+	<div class="modal-dialog modal-content modal-sm login-dp signup-body"
+		style="padding: 10px; max-height: calc(100vh - 50px); overflow-y: auto; border-radius: 10px;">
+		<div class="form-group">
+			<div class="col-sm-12">
+				<div
+					style="text-align: center; background-color: #1f4e74; color: white; padding: 5px; border-radius: 3px;">
+					<strong>Please sign up</strong>
+				</div>
+			</div>
+		</div>
+		<br />
+		<form class="form" role="form" method="post" id="login-nav"
+			style="color: grey;">
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label class="control-label">Email Address</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
+							type="email" class="form-control" required="required"
+							ng-model="parent.signupEmail">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="control-label">Fullname</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user fa"
+							aria-hidden="true"></i></span> <input type="text" class="form-control"
+							required="required" ng-model="parent.signupFullname">
+					</div>
+				</div>
+			</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label class="control-label">Password</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock fa-lg"
+							aria-hidden="true"></i></span> <input type="password"
+							class="form-control" required="required"
+							ng-model="parent.signupPassword">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<label class="control-label">Confirm Password</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock fa-lg"
+							aria-hidden="true"></i></span> <input type="password"
+							class="form-control" required="required">
+					</div>
+				</div>
+			</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-6">
+					<label class="control-label">Location</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i
+							class="fa fa-location-arrow" aria-hidden="true"></i></span> <input
+							type="text" class="form-control" ng-model="parent.userLocation">
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<label class="control-label">User Type</label>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-tags"
+							aria-hidden="true"></i></span> <select class="form-control"
+							disabled="disabled" ng-model="parent.userType" id="userType">
+							<option>Supplier</option>
+							<option>Customer</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			&nbsp;
+			<div class="modal-body" ng-if="errorMessage"
+				style="color: red; font-size: 15px; padding: 5px;">{{errorMessage}}</div>
+			&nbsp;
+			<div class="form-group">
+				<div class="col-sm-12">
+					<button type="submit" ng-click="signup()"
+						class="btn btn-primary btn-block" href="#signupConfirmation"
+						role="button" data-toggle="modal" data-dismiss="modal"
+						data-target="#signupConfirmation">Sign up</button>
+				</div>
+			</div>
+		</form>
+		&nbsp;
+		<div class="form-group">
+			<div class="col-sm-12"
+				style="color: black; text-align: right; font-weight: bold">
+				<small>Already registered? <a href="#login"
+					data-toggle="modal" data-target="#login"
+					style="border-radius: 2px;">Sign In</a>
+				</small>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal hide fade" id="signupConfirmation" role="dialog"
+	aria-labelledby="mySmallModalLabel" style="padding: 20px;">
+	<div class="modal-dialog modal-content modal-sm login-dp signup-body"
+		style="padding: 10px; background-color: #082d37; color: white;">Thanks
+		for your sign up. Please check your email to confirm.</div>
+	<div>
+		<button type="submit" data-dismiss="modal"
+			class="btn btn-primary btn-block">Ok</button>
+	</div>
+</div>

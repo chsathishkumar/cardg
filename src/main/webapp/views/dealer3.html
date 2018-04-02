@@ -1,0 +1,58 @@
+</br>
+</br>
+</br>
+
+<!-- style="left: 50px; padding-right: 160px;" -->
+
+<div class="col-md-12" 
+	ng-init="getShuffledCards()">
+	<table class="table table-condensed table-striped">
+		<tr>
+			<td><div class="col-sm-4" style="padding-left: 300px;"
+					ng-show="(playerA3cards.length == 13 || playerB3cards.length == 13) && !(playerACard.length == 0 && playerBCard.length == 0)">
+					<button class="btn btn-sm btn-primary" ng-click="getCard()">Distribute
+						Cards</button>
+				</div></td>
+			<td><div class="col-sm-4" style="padding-left: 300px;"
+					ng-show="(playerACard.length == 0 && playerBCard.length == 0)">
+					<button class="btn btn-sm btn-primary"
+						ng-click="getShuffledCards()">Shuffle Time</button>
+				</div></td>
+		</tr>
+
+		<tr>
+		<td></td>
+		</tr>
+		<tr>
+			<td id="playerA" style="padding-left: 0px; padding-top: 50px; padding-bottom: 100px;">
+				<div>
+					<div class="col-sm-4" ng-repeat="playerA in playerA3cards"
+						ng-if="playerA != 0 && playerA3cards.length > 0 && playerA3cards.length == 13">
+						<img src='/images/{{playerA}}' />
+					</div>
+					<div ng-show="playerA3cards.length > 0 && playerA3cards.length == 13">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button class="btn btn-sm btn-primary" ng-click="getGroupA(playerA3cards)">Group
+							Cards</button>
+					</div>
+				</div>
+
+
+			</td>
+
+			<td id="playerB" style="padding-right: 0px; padding-top: 50px; padding-bottom: 100px;">
+			<div>
+					<div class="col-sm-4" ng-repeat="playerB in playerB3cards"
+					ng-if="playerB != 0 && playerB3cards.length > 0 && playerB3cards.length == 13">
+					<img src='/images/{{playerB}}' />
+				</div>
+					<div ng-show="playerB3cards.length > 0 && playerB3cards.length == 13">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button class="btn btn-sm btn-primary" ng-click="getGroupB(playerB3cards)">Group
+							Cards</button>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

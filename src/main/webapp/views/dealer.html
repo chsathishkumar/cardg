@@ -1,0 +1,139 @@
+<div style="">
+	<div ng-include="'views/menu.html'"></div>
+	
+<div class="modal fade" id="getCallback" role="dialog"
+		aria-labelledby="mySmallModalLabel" style="padding: 20px;">
+		<div class="modal-dialog modal-content modal-sm login-dp signup-body"
+			style="padding: 10px; background-color: #082d37; color: white;">
+			<label>Please enter your mobile number</label><br /> <input
+				type="text" class="form-control"><br />
+			<div style="text-align: center">
+				<button type="submit" data-dismiss="modal" class="btn btn-primary"
+					style="border-radius: 5px">Please callback</button>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal fade" id="sendSMS" role="dialog"
+		aria-labelledby="mySmallModalLabel" style="padding: 20px;">
+		<div class="modal-dialog modal-content modal-sm login-dp signup-body"
+			style="padding: 10px; background-color: #082d37; color: white;">
+			<label>Please enter your text</label><br />
+			<textarea rows="5" cols="50" class="form-control"></textarea>
+			<br />
+			<div style="text-align: center">
+				<button type="submit" data-dismiss="modal" class="btn btn-primary"
+					style="border-radius: 5px">Send SMS</button>
+			</div>
+		</div>
+	</div>
+</br>
+</br>
+</br>
+
+<!-- style="left: 50px; padding-right: 160px;" -->
+<div ng-if="loginCheck != 0">
+<div class="col-md-12" ng-init="getShuffledCards()">
+	<table class="table table-condensed table-striped">
+		<tr>
+			<td><div class="col-sm-4" style="padding-left: 300px;"
+					ng-if="(playerA3cards.length == 13 || playerB3cards.length == 13) && !(playerCard.length <= 12)">
+					<button class="btn btn-sm btn-primary" ng-click="getCard()">Distribute
+						Cards</button>
+				</div></td>
+			<td><div class="col-sm-4" style="padding-left: 300px;"
+					ng-if="(playerCard.length <= 12)">
+					<button class="btn btn-sm btn-primary"
+						ng-click="getShuffledCards()">Shuffle Time</button>
+				</div></td>
+		</tr>
+
+		<tr>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td>
+				<div class="col-sm-4"
+					style="padding-top: 10px; padding-bottom: 10px;">
+					<img src='/images/{{openJokerCard}}'
+						ng-if="!(playerCard.length <= 12)"/>
+				</div>
+				<div class="col-sm-4"
+					style="padding-top: 10px; padding-bottom: 10px;">
+					<img src='/images/b.gif' ng-if="!(playerCard.length <= 12)" ng-click='pickNextCard()' />
+				</div>
+				<div class="col-sm-4" ng-if = 'openCard !=""'
+					 style="padding-top: 10px; padding-bottom: 10px; padding-left: 100px;">
+					<img src='/images/{{openCard}}' ng-if="!(playerCard.length <= 12)" 
+						ng-click="addToPlayerList(openCard)" />
+				</div>
+				<div class="col-sm-4" ng-if = 'firstOpenCard !=""'
+					 style="padding-top: 10px; padding-bottom: 10px; padding-left: 100px;">
+					<img src='/images/{{firstOpenCard}}' ng-if="!(playerCard.length <= 12)" 
+						ng-click="addToPlayerList(firstOpenCard)" />
+				</div>
+			</td>
+			<td>
+			<div class="col-sm-1" ng-repeat="trashCard in trashinPool">
+						<img style='width: 40px;' src='/images/{{trashCard}}'/>
+					</div>
+					</td>
+		</tr> 
+		<tr>
+			<td></td>
+		</tr>
+
+		<!-- <tr><td><div class="col-md-6">
+								<a style="color: white;" href="">{{userName}}</a> <i
+									class="fa fa-user fa"></i>
+							</div>
+							</td><td></td></tr> 
+		
+		<tr style="padding-top: 0px; padding-bottom: 0px;"></tr> -->
+		<tr ng-show="(playerA3cards.length > 0 && (playerA3cards.length == 13 || playerA3cards.length == 14) && !(playerCard.length <= 12)) && (playerB3cards.length > 0 && (playerA3cards.length == 13 || playerA3cards.length == 14))">
+			
+			<td id="playerA"
+				style="padding-top: 50px; padding-bottom: 50px; padding-left: 0px;">
+				<a style="color: white;" href="">{{userName}}</a> <i
+									class="fa fa-user fa"></i>
+				<div>
+					<div class="col-sm-4" ng-repeat="playerA in playerA3cards"
+						ng-if="playerA3cards.length > 0 && (playerA3cards.length == 13 || playerA3cards.length == 14) && !(playerCard.length <= 12)">
+						<img src='/images/{{playerA}}' ng-click="throwCardToTrashA(playerA)" />
+					</div>
+					<div ng-if="playerA3cards.length > 0 && (playerA3cards.length == 13 || playerA3cards.length == 14) && !(playerCard.length <= 12)">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button class="btn btn-sm btn-primary"
+							ng-click="getGroupA(playerA3cards)">Sort</button>
+					</div>
+				</div>
+
+
+			</td>
+
+			<td id="playerB"
+				style="padding-top: 50px; padding-right: 0px; padding-bottom: 50px;">
+				<a style="color: white;" href="">{{userName}}</a> <i
+									class="fa fa-user fa"></i>
+				<div>
+					<div class="col-sm-4" ng-repeat="playerB in playerB3cards"
+						ng-if="playerB3cards.length > 0 && (playerB3cards.length == 13 || playerB3cards.length == 14)">
+						<img src='/images/{{playerB}}' ng-click="throwCardToTrashB(playerB)"/>
+					</div>
+					<div ng-if="playerB3cards.length > 0 && (playerB3cards.length == 13 || playerB3cards.length == 14)">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button class="btn btn-sm btn-primary"
+							ng-click="getGroupB(playerB3cards)">Sort</button>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr ng-if="!((playerA3cards.length > 0 && (playerA3cards.length == 13 || playerA3cards.length == 14) && !(playerCard.length <= 12)) && (playerB3cards.length > 0 && (playerB3cards.length == 13 || playerB3cards.length == 14)))"><td><div class="col-sm-4"
+					style="padding-top: 10px; padding-bottom: 10px;">
+					<img src='/images/shuffle.png'/>
+				</div></td></tr>
+	</table>
+</div>
+</div>
